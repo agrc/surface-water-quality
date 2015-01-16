@@ -13,6 +13,7 @@ function (
     describe('app/App', function () {
         var testWidget;
         beforeEach(function () {
+            domConstruct.create('div', {id: 'loading-overlay'}, document.body);
             testWidget = new App({}, domConstruct.create('div', {}, win.body()));
             testWidget.startup();
         });
