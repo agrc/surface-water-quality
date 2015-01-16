@@ -2,7 +2,7 @@
 define([], function() {
 	window.AGRC = {
 		// errorLogger: ijit.modules.ErrorLogger
-		errorLogger: null,
+		errorLogger: {log: function (msg) {console.error(msg);}},
 
 		// app: app.App
 		//      global reference to App
@@ -21,7 +21,7 @@ define([], function() {
 				AU_NAME: 'AssessmentUnits.AU_NAME',
 				ASSESS_ID: 'AssessmentUnits.ASSESS_ID',
 				BEN_CLASS: 'BEN_CLASS',
-				CAT_2010: 'CAT_2010',
+				CAT_2014: 'CAT_2014',
 				TMDL_INFO: 'TMDL_INFO',
 				Anti_DEGRD: 'Anti_DEGRD',
 				COUNTY: 'AssessmentUnits.COUNTY'
@@ -33,8 +33,8 @@ define([], function() {
 				MGMT_UNIT: 'Watershed Management Unit',
 				Anti_DEGRD: 'Anti-Degradation Category',
 				BEN_CLASS: 'Beneficial Uses',
-				CAT_2010: '2010 Assessment',
-				CAUSE_2010: 'Beneficial Use: Cause of Impairment',
+				CAT_2014: '2014 Assessment',
+				CAUSE_2014: 'Beneficial Use: Cause of Impairment',
 				TMDL_APPRV: 'TMDL Approved: Cause of Impairment',
 				TMDL_INFO: 'TMDL Information',
 				TMDL_REQRD: 'TMDL Required: 303d Cause of Impairment',
@@ -71,7 +71,7 @@ define([], function() {
 				'5C': 'Use Class 5C = Infrequent primary and secondary contact recreation, waterfowl and shore birds',
 				'5D': 'Use Class 5D = Infrequent primary and secondary contact recreation, waterfowl and shore birds'
 			},
-			CAT_2010: {
+			CAT_2014: {
 				'1': 'Assessment Category 1 = Not Impaired: all beneficial uses are supported',
 				'2': 'Assessment Category 2 = Not impaired: ' +
 					'assessed beneficial uses are supported, at least 1 use not assessed',

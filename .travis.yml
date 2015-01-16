@@ -8,7 +8,8 @@ before_install:
     - bower install
 notifications:
     email:
-        on_success: never
+        on_success: change
+        on_failure: change
 env:
   global:
     - secure: V5csRamm/tlqYKATPX5E9gpAJwsbxczBSlbTPaX9M2dyvGbzWjuJO7x62NEOly2FndKRMnSmp3R7ZlqORgBn1D5/K8lpwZcm4L1olfPpGJL5trIw0oWJo2Q6k/NpKUwV4aFN96NS75jxHztbUsnzrDLRRsNPxAcwKo//Q/PCB4I=

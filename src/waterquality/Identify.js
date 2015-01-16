@@ -43,7 +43,7 @@ function (
             console.info(this.declaredClass + "::" + arguments.callee.nom, arguments);
 
             this.resultsPane = registry.byId('identify-pane');
-            
+
             this.identifyResults = [];
             this.inherited(arguments);
         },
@@ -51,9 +51,9 @@ function (
             // summary:
             //      overridden
             console.info(this.declaredClass + "::" + arguments.callee.nom, arguments);
-            
+
             this.clearIdentifyResults();
-            
+
             if (iResults.length === 0) {
                 this.map.hideLoader();
                 return;
@@ -62,12 +62,12 @@ function (
             var hucs = [], streams = [];
             array.forEach(iResults, function (result) {
                 var g = result.feature;
-                
+
                 var template;
                 var parts = result.displayFieldName.split('.');
                 var titleField = parts[parts.length - 1];
                 var titleString = result.layerName + ': ${' + titleField + '}';
-                
+
                 // what layer is this?
                 if (result.layerId === 0 || result.layerId === 3) {
                     template = new InfoTemplate(titleString, StreamAttributes);
@@ -78,35 +78,35 @@ function (
                 }
                 g.setInfoTemplate(template);
                 g.attributes = this.formatAttributes(result);
-                
+
             }, this);
-            
+
             // load all streams first
             array.forEach(streams, function (str) {
                 this.loadIdentifyResult(str);
             }, this);
-            
+
             if (hucs.length > 0) {
                 // load only one huc to prevent confusion
                 this.loadIdentifyResult(hucs[0]);
             }
-            
+
             // show pane
             if (!this.resultsPane.get('open')) {
                 this.resultsPane.toggle();
             }
-            
+
             this.map.hideLoader();
         },
         setMap: function (map) {
             // summary:
             //      overridden to set theme
             console.info(this.declaredClass + "::" + arguments.callee.nom, arguments);
-            
+
             this.map = map;
-            
+
             map.on("click", lang.hitch(this, this.onMapClick));
-            
+
             domClass.add(map.infoWindow.domNode, 'myTheme');
         },
         formatAttributes: function (result) {
@@ -123,7 +123,7 @@ function (
             if (result.layerId === 1 || result.layerId === 4) {
                 field = AGRC.fields.assessmentUnits.BEN_CLASS;
                 attributes[field] = this.formatValue(attributes, field);
-                field = AGRC.fields.assessmentUnits.CAT_2010;
+                field = AGRC.fields.assessmentUnits.CAT_2014;
                 attributes[field] = this.formatValue(attributes, field);
                 field = AGRC.fields.assessmentUnits.Anti_DEGRD;
                 attributes[field] = this.formatValue(attributes, field);
@@ -161,9 +161,9 @@ function (
             // summary:
             //      clears the identify result widgets and graphics on the map
             console.info(this.declaredClass + "::" + arguments.callee.nom, arguments);
-            
+
             this.map.graphics.clear();
-            
+
             array.forEach(this.identifyResults, function (result) {
                 result.destroy();
             });
@@ -173,7 +173,7 @@ function (
             //      Creates an identify result and places it in the pane
             // g: esri.Graphic
             console.info(this.declaredClass + "::" + arguments.callee.nom, arguments);
-            
+
             var iResult = new IdentifyResult({
                 graphic: g
             }, domConstruct.create('div', null, 'identify-results'));
