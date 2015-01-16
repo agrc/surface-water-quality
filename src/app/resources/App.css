@@ -1,0 +1,120 @@
+@import '../../agrc/resources/map/BaseMap.css';
+@import '../../agrc/resources/locate/MagicZoom.css';
+@import '../../agrc/resources/locate/ZoomToCoords.css';
+@import '../../agrc/resources/map/BaseMapSelector.css';
+@import '../../ijit/themes/standard/layout/SideBarToggler.css';
+@import '../../ijit/themes/standard/layout/PaneStack.css';
+@import '../../waterquality/css/StreamSearch.css';
+@import '../../waterquality/css/ZoomToCoords.css';
+@import '../../waterquality/css/Identify.css';
+@import '../../waterquality/css/IdentifyResult.css';
+@import '../../waterquality/css/Print.css';
+/*@import '../../bootstrap/css/bootstrap.css'; breaks dojo build :( */
+
+body, html, .app {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: #444;
+}
+.app .main-container {
+    width: 100%;
+    height: 100%;
+}
+#loading-overlay {
+    padding: 10px;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #EDEDED;
+    z-index: 800;
+    vertical-align: middle;
+}
+
+/* TITLE PANE */
+.app .title-pane {
+    border: none;
+    overflow: hidden;
+}
+.app h1 {
+    margin: 5px 0 0 0;
+    font-size: 40px;
+    letter-spacing: -2px;
+    font-weight: normal;
+}
+.app .version {
+    font-size: 16px;
+    text-decoration: none;
+    color: gray;
+    letter-spacing: 0;
+}
+.app .version:hover {
+    text-decoration: underline !important;
+}
+.app .title-pane>img {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* SIDE BAR */
+.app .side-bar {
+    width: 350px;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.help-txt {
+    margin: 8px;
+}
+.clearer {
+    clear: both;
+}
+.app .side-bar h3 {
+    margin-bottom: 3px;
+}
+.app .first-header {
+    margin-top: 0px;
+}
+.magic-zoom {
+    position: relative;
+    z-index: auto;
+    width: 320px;
+}
+.magic-zoom .input-group,
+.magic-zoom .matches-table {
+    width: 310px;
+}
+.pane-stack {
+    margin: 0px -1px 0 -1px;
+}
+.dijitTitlePaneContentInner p {
+    margin: 8px 0 0 0;
+}
+.dijitTitlePaneContentInner > p:first-of-type {
+    margin-top: 0;
+}
+#identify-pane .dijitTitlePaneContentInner {
+    padding: 0;
+}
+
+/* CENTER (MAP) */
+.app .center-container {
+    padding: 0;
+}
+.app .map-div {
+    width: 100%;
+    height: 100% !important;
+}
+
+/* GENERAL STUFF */
+/* remove orange outline in chrome */
+*:focus {
+    outline: none;
+}

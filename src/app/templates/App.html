@@ -1,0 +1,45 @@
+<div>
+    <div data-dojo-attach-point='mainContainer' class='main-container' data-dojo-type='dijit.layout.BorderContainer'>
+        <div class='title-pane' data-dojo-type='dijit.layout.ContentPane' data-dojo-props="region: 'top'">
+            <h1>
+                Beneficial Uses and Water Quality Assessment Map
+                <a data-dojo-attach-point='version' href='ChangeLog.html' target="_blank" class='version'></a>
+            </h1>
+            <img src='app/resources/deqLogo.jpg' alt='deq logo'/>
+            <div style='clear: both;'></div>
+        </div>
+        <div data-dojo-attach-point='sideBar' id='side-bar' class='side-bar' data-dojo-type='dijit.layout.ContentPane' data-dojo-props="region: 'left'">
+            <p class='help-txt'>Zoom into your area of interest and click on an assessment unit 
+                (outlined in yellow) or waterbody (in blue) to view the data.</p>
+            <div data-dojo-attach-point='printDiv'></div>
+            <div data-dojo-attach-point='paneStack' class='pane-stack'>
+                <div title='Search' open='true'>
+                    Stream Name:
+                    <div id='stream-search'></div>
+                    Waterbody or Assessment Unit Name:
+                    <div id='au-name-search'></div>
+                    Assessment Unit ID:
+                    <div id='au-id-search'></div>
+                    <div id='zoom-to-coords'></div>
+                    <div style='clear: both;'></div>
+                </div>
+                <div title='Selected Map Feature Data' id='identify-pane'>
+                    <div id='identify-results'></div>
+                </div>
+                <div title='More Information'>
+                    <p>This map based tool is provided by the Utah Division of Water Quality (DWQ) to identify the 
+                        designated beneficial uses of Utah's surface waters, increase public awareness of local water 
+                        quality concerns and where to find additional information. Contact information of a watershed 
+                        scientist is provided if you have questions or need further assistance.</p>
+                    <p>Disclaimer:  The information provided on this web page is not the official record of impaired waters.  
+                    Please <a href='http://www.waterquality.utah.gov/WQAssess'>click here</a> for detailed water quality 
+                    assessment information.</p>
+                </div>
+            </div>
+        </div>
+        <div id='center' class='center-container' data-dojo-type='dijit.layout.ContentPane' data-dojo-props="region: 'center'" data-dojo-attach-point='centerContainer'>
+            <div data-dojo-attach-point='sidebarToggle'></div>
+            <div data-dojo-attach-point='mapDiv' class='map-div'></div>
+        </div>
+    </div>
+</div>
