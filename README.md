@@ -5,4 +5,4 @@
 Beneficial Uses and Water Quality Assessment Map
 
 
-SauceUserName: `agrc-surface-water` (full project name was too long)
+Sauce User Name: `agrc-surface-water` (full project name was too long)
