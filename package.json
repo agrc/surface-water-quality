@@ -19,5 +19,8 @@
     "grunt-processhtml": "^0.3.6",
     "grunt-saucelabs": "^8.4.1",
     "grunt-ssh": "^0.12.0"
+  },
+  "scripts": {
+    "test": "grunt travis --verbose"
   }
 }
