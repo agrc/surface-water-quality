@@ -3,15 +3,6 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     jasmine: {
-      // for embedded map projects...
-      // app: {
-      //   src: ['src/EmbeddedMapLoader.js'],
-      //   options: {
-      //     specs: ['src/app/tests/spec/*.js']
-      //   }
-      // }
-      
-      // for regular apps...
       app: {
         src: ['src/app/run.js'],
         options: {
@@ -29,7 +20,10 @@ module.exports = function(grunt) {
     },
     watch: {
       files: ['src/app/**/*.js'],
-      tasks: ['jasmine:app:build', 'jshint']
+      tasks: ['jasmine:app:build', 'jshint'],
+      options: {
+          livereload: true
+      }
     },
     connect: {
       uses_defaults: {}

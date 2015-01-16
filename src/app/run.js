@@ -18,5 +18,10 @@
         'bootstrap',
         'waterquality'
     ];
+    config.packages = [{
+        name: 'spin',
+        location: projectUrl + 'spinjs',
+        main: 'spin'
+    }]
     require(config, ['app']);
 })();
