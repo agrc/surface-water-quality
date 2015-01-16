@@ -1,29 +1,33 @@
 {
-  "name": "surface-water-quality",
-  "version": "1.1.1",
-  "homepage": "https://github.com/agrc/surface-water-quality",
-  "authors": [
-    "Scott Davis <stdavis@utah.gov>"
-  ],
-  "moduleType": [
-    "amd"
-  ],
-  "license": "MIT",
-  "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "agrc": "agrc-widgets#2.1",
-    "bootstrap": "3.0",
-    "dijit": "1.8",
-    "dojo": "1.8",
-    "dojox": "1.8",
-    "ijit": "agrc-ijit#2.1",
-    "util": "dojo-util#1.8"
-  }
+	"name": "surface-water-quality",
+	"version": "1.1.1",
+	"homepage": "https://github.com/agrc/surface-water-quality",
+	"authors": [
+		"Scott Davis <stdavis@utah.gov>"
+	],
+	"moduleType": [
+		"amd"
+	],
+	"license": "MIT",
+	"private": true,
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"agrc": "agrc-widgets#2.1",
+		"bootstrap": "3.0",
+		"dijit": "1.8",
+		"dojo": "1.8",
+		"dojox": "1.8",
+		"ijit": "agrc-ijit#2.1",
+		"util": "dojo-util#1.8",
+		"put-selector": "~0.3.6",
+		"xstyle": "8a80773bed850a3230451c6a38c1386e180b6070",
+		"mustache": "~1.0.0"
+	},
+	"devDependencies": {}
 }

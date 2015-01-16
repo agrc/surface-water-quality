@@ -1,8 +1,8 @@
 {
-    "name": "app",
-    "version": "0.1",
-    "main": "main",
-    "description": "AGRC Boilerplate",
-    "homepage": "https://github.com/agrc/AGRCJavaScriptProjectBoilerPlate",
-    "dojoBuild": "package.js"
+	"name": "app",
+	"version": "1.1.1",
+	"main": "run",
+	"description": "surface-water-quality",
+	"homepage": "https://github.com/agrc/surface-water-quality",
+	"dojoBuild": "app.profile.js"
 }
