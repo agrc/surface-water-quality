@@ -1,6 +1,6 @@
 {
   "name": "surface-water-quality",
-  "version": "1.1.1",
+  "version": "1.2.0-0",
   "devDependencies": {
     "grunt": "~0.4",
     "grunt-bump": "^0.7.0",
