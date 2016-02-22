@@ -1,6 +1,6 @@
-/*jshint unused:false */
+/*eslint-disable no-unused-vars*/
 var profile = {
     staticHasFeatures: {
-        'agrc-api-key': '"stage"'
+        'agrc-build': '"stage"'
     }
 };

@@ -1,16 +1,9 @@
-/* jshint camelcase:false */
 var osx = 'OS X 10.10';
 var windows = 'Windows 8.1';
 var browsers = [{
-
-    // OSX
-
     browserName: 'safari',
     platform: osx
 }, {
-
-    // Windows
-
     browserName: 'firefox',
     platform: windows
 }, {
@@ -30,59 +23,59 @@ var browsers = [{
     version: '9'
 }];
 
-module.exports = function(grunt) {
-    var jsFiles = 'src/app/**/*.js',
-        otherFiles = [
-            'src/app/**/*.html',
-            'src/app/**/*.css',
-            'src/index.html',
-            'src/ChangeLog.html'
-        ],
-        gruntFile = 'GruntFile.js',
-        internFile = 'tests/intern.js',
-        jshintFiles = [
-            jsFiles,
-            gruntFile,
-            internFile
-        ],
-        bumpFiles = [
-            'package.json',
-            'bower.json',
-            'src/app/package.json',
-            'src/app/config.js'
-        ],
-        deployFiles = [
-            '**',
-            '!**/*.min.*',
-            '!**/*.uncompressed.js',
-            '!**/*consoleStripped.js',
-            '!**/bootstrap/less/**',
-            '!**/bootstrap/test-infra/**',
-            '!**/tests/**',
-            '!build-report.txt',
-            '!components-jasmine/**',
-            '!favico.js/**',
-            '!jasmine-favicon-reporter/**',
-            '!jasmine-jsreporter/**',
-            '!stubmodule/**',
-            '!util/**'
-        ],
-        deployDir = 'wwwroot/SurfaceWaterQuality',
-        secrets,
-        sauceConfig = {
-            urls: ['http://127.0.0.1:8000/_SpecRunner.html'],
-            tunnelTimeout: 20,
-            build: process.env.TRAVIS_JOB_ID,
-            browsers: browsers,
-            testname: 'surface-water-quality',
-            maxRetries: 10,
-            maxPollRetries: 10,
-            'public': 'public',
-            throttled: 3,
-            sauceConfig: {
-                'max-duration': 10800
-            }
-        };
+module.exports = function (grunt) {
+    var jsFiles = 'src/app/**/*.js';
+    var otherFiles = [
+        'src/app/**/*.html',
+        'src/app/**/*.css',
+        'src/index.html',
+        'src/ChangeLog.html'
+    ];
+    var gruntFile = 'GruntFile.js';
+    var internFile = 'tests/intern.js';
+    var jshintFiles = [
+        jsFiles,
+        gruntFile,
+        internFile,
+        'profiles/*.js'
+    ];
+    var bumpFiles = [
+        'package.json',
+        'bower.json',
+        'src/app/package.json',
+        'src/app/config.js'
+    ];
+    var deployFiles = [
+        '**',
+        '!**/*.uncompressed.js',
+        '!**/*consoleStripped.js',
+        '!**/bootstrap/less/**',
+        '!**/bootstrap/test-infra/**',
+        '!**/tests/**',
+        '!build-report.txt',
+        '!components-jasmine/**',
+        '!favico.js/**',
+        '!jasmine-favicon-reporter/**',
+        '!jasmine-jsreporter/**',
+        '!stubmodule/**',
+        '!util/**'
+    ];
+    var deployDir = 'wwwroot/SurfaceWaterQuality';
+    var secrets;
+    var sauceConfig = {
+        urls: ['http://127.0.0.1:8000/_SpecRunner.html'],
+        tunnelTimeout: 20,
+        build: process.env.TRAVIS_JOB_ID,
+        browsers: browsers,
+        testname: 'surface-water-quality',
+        maxRetries: 10,
+        maxPollRetries: 10,
+        'public': 'public',
+        throttled: 3,
+        sauceConfig: {
+            'max-duration': 10800
+        }
+    };
     try {
         secrets = grunt.file.readJSON('secrets.json');
         sauceConfig.username = secrets.sauce_name;
@@ -160,20 +153,6 @@ module.exports = function(grunt) {
                 basePath: './src'
             }
         },
-        esri_slurp: {
-            options: {
-                version: '3.5'
-            },
-            dev: {
-                options: {
-                    beautify: true
-                },
-                dest: 'src/esri'
-            },
-            travis: {
-                dest: 'src/esri'
-            }
-        },
         imagemin: {
             main: {
                 options: {
@@ -206,13 +185,12 @@ module.exports = function(grunt) {
                 }
             }
         },
-        jshint: {
-            main: {
-                // must use src for newer to work
-                src: jshintFiles
-            },
+        eslint: {
             options: {
-                jshintrc: '.jshintrc'
+                configFile: '.eslintrc'
+            },
+            main: {
+                src: jshintFiles
             }
         },
         processhtml: {
@@ -273,9 +251,9 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            jshint: {
+            eslint: {
                 files: jshintFiles,
-                tasks: ['newer:jshint:main', 'jasmine:main:build']
+                tasks: ['eslint:main', 'jasmine:main:build']
             },
             src: {
                 files: jshintFiles.concat(otherFiles),
@@ -301,14 +279,12 @@ module.exports = function(grunt) {
     // Default task.
     grunt.registerTask('default', [
         'jasmine:main:build',
-        'newer:jshint:main',
-        'if-missing:esri_slurp:dev',
+        'eslint:main',
         'connect',
         'watch'
     ]);
     grunt.registerTask('build-prod', [
         'clean:build',
-        'if-missing:esri_slurp:dev',
         'newer:imagemin:main',
         'dojo:prod',
         'copy:main',
@@ -316,7 +292,6 @@ module.exports = function(grunt) {
     ]);
     grunt.registerTask('build-stage', [
         'clean:build',
-        'if-missing:esri_slurp:dev',
         'newer:imagemin:main',
         'dojo:stage',
         'copy:main',
@@ -340,8 +315,7 @@ module.exports = function(grunt) {
         'saucelabs-jasmine'
     ]);
     grunt.registerTask('travis', [
-        'if-missing:esri_slurp:travis',
-        'jshint',
+        'eslint',
         'sauce',
         'build-prod'
     ]);

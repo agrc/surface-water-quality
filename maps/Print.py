@@ -1,6 +1,7 @@
 import arcpy
 from json import loads
 from os.path import join
+import os
 
 '''
 GP Parameters
@@ -12,15 +13,14 @@ GP Parameters
 5 - outFile: String (output parameter, path to pdf file)
 '''
 
-#variables
-mxdPath = r'\\172.16.17.53\ArcGISServer\serverprojects\SurfaceWaterQuality\PrintTemplate.mxd'
+# variables
+cwd = os.path.dirname(os.path.realpath(__file__))
+mxdPath = join(cwd, 'PrintTemplate.mxd')
 outFileName = 'map.pdf'
 scratch = arcpy.env.scratchFolder
-# if not scratch:
-#     scratch = 'C:/Temp'
 outPDF = join(scratch, outFileName)
 scratchGDB = join(scratch, 'scratch.gdb')
-if arcpy.Exists(scratchGDB) == False:
+if arcpy.Exists(scratchGDB) is False:
     arcpy.CreateFileGDB_management(scratch, 'scratch.gdb')
 BlankPoly = join(scratchGDB, 'BlankPoly')
 BlankLine = join(scratchGDB, 'BlankLine')

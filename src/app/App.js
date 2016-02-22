@@ -1,256 +1,265 @@
-/* jshint camelcase:false */
 define([
-	'agrc/widgets/locate/MagicZoom',
-	'agrc/widgets/locate/ZoomToCoords',
-	'agrc/widgets/map/BaseMap',
-	'agrc/widgets/map/BaseMapSelector',
+    'agrc/widgets/locate/ZoomToCoords',
+    'agrc/widgets/map/BaseMap',
 
-	'dijit/_TemplatedMixin',
-	'dijit/_WidgetBase',
-	'dijit/_WidgetsInTemplateMixin',
-	'dijit/registry',
+    'app/config',
+    'app/Identify',
+    'app/Print',
 
-	'dojo/_base/Color',
-	'dojo/_base/declare',
-	'dojo/_base/lang',
-	'dojo/aspect',
-	'dojo/dom',
-	'dojo/text!app/templates/App.html',
-	'dojo/topic',
+    'dijit/registry',
+    'dijit/_TemplatedMixin',
+    'dijit/_WidgetBase',
+    'dijit/_WidgetsInTemplateMixin',
 
-	'esri/layers/ArcGISDynamicMapServiceLayer',
-	'esri/symbols/SimpleLineSymbol',
+    'dojo/aspect',
+    'dojo/dom',
+    'dojo/text!app/templates/App.html',
+    'dojo/topic',
+    'dojo/_base/Color',
+    'dojo/_base/declare',
+    'dojo/_base/lang',
 
-	'ijit/widgets/layout/PaneStack',
-	'ijit/widgets/layout/SideBarToggler',
+    'esri/geometry/Extent',
+    'esri/layers/ArcGISDynamicMapServiceLayer',
+    'esri/symbols/SimpleLineSymbol',
 
-	'waterquality/Identify',
-	'waterquality/Print',
-	'waterquality/StreamSearch',
+    'ijit/widgets/layout/PaneStack',
+    'ijit/widgets/layout/SideBarToggler',
 
-	'app/config',
-	'dijit/layout/BorderContainer',
-	'dijit/layout/ContentPane'
-], function(
-	MagicZoom,
-	ZoomToCoords,
-	BaseMap,
-	BaseMapSelector,
+    'layer-selector',
 
-	_TemplatedMixin,
-	_WidgetBase,
-	_WidgetsInTemplateMixin,
-	registry,
+    'sherlock/providers/MapService',
+    'sherlock/providers/WebAPI',
+    'sherlock/Sherlock',
 
-	Color,
-	declare,
-	lang,
-	aspect,
-	dom,
-	template,
-	topic,
+    'dijit/layout/BorderContainer',
+    'dijit/layout/ContentPane'
+], function (
+    ZoomToCoords,
+    BaseMap,
 
-	ArcGISDynamicMapServiceLayer,
-	SimpleLineSymbol,
+    config,
+    Identify,
+    Print,
 
-	PaneStack,
-	SideBarToggler,
+    registry,
+    _TemplatedMixin,
+    _WidgetBase,
+    _WidgetsInTemplateMixin,
 
-	Identify,
-	Print,
-	StreamSearch
+    aspect,
+    dom,
+    template,
+    topic,
+    Color,
+    declare,
+    lang,
+
+    Extent,
+    ArcGISDynamicMapServiceLayer,
+    SimpleLineSymbol,
+
+    PaneStack,
+    SideBarToggler,
+
+    LayerSelector,
+
+    MapService,
+    WebAPI,
+    Sherlock
 ) {
-	return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
-		// summary:
-		//      The main widget for the app
+    return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
+        // summary:
+        //      The main widget for the app
 
-		widgetsInTemplate: true,
-		templateString: template,
-		baseClass: 'app',
+        widgetsInTemplate: true,
+        templateString: template,
+        baseClass: 'app',
 
-		// map: agrc.widgets.map.Basemap
-		map: null,
+        // map: agrc.widgets.map.Basemap
+        map: null,
 
-		// identify: waterquality.Identify
-		identify: null,
+        // identify: waterquality.Identify
+        identify: null,
 
-		constructor: function() {
-			// summary:
-			//      first function to fire after page loads
-			console.log('app/App:constructor', arguments);
+        constructor: function () {
+            // summary:
+            //      first function to fire after page loads
+            console.log('app/App:constructor', arguments);
 
-			// AGRC.errorLogger = new ErrorLogger({appName: 'ProjectName'});
+            config.app = this;
 
-			AGRC.app = this;
+            this.inherited(arguments);
+        },
+        postCreate: function () {
+            // summary:
+            //      Fires when
+            console.log('app/App:postCreate', arguments);
 
-			this.inherited(arguments);
-		},
-		postCreate: function() {
-			// summary:
-			//      Fires when
-			console.log('app/App:postCreate', arguments);
+            // set version number
+            this.version.innerHTML = config.version;
 
-			// set version number
-			this.version.innerHTML = AGRC.version;
+            this.wireEvents();
 
-			this.wireEvents();
+            this.inherited(arguments);
+        },
+        startup: function () {
+            // summary:
+            //      Fires after postCreate when all of the child widgets are finished laying out.
+            console.log('app/App:startup', arguments);
 
-			this.inherited(arguments);
-		},
-		startup: function() {
-			// summary:
-			//      Fires after postCreate when all of the child widgets are finished laying out.
-			console.log('app/App:startup', arguments);
+            // call this before creating the map to make sure that the map container is
+            // the correct size
+            this.inherited(arguments);
 
-			// call this before creating the map to make sure that the map container is
-			// the correct size
-			this.inherited(arguments);
+            this.paneStack = new PaneStack(null, this.paneStack);
 
-			var sb;
+            this.initMap();
+            this.initSearchTools();
 
-			this.paneStack = new PaneStack(null, this.paneStack);
+            new SideBarToggler({
+                sidebar: this.sideBar.domNode,
+                mainContainer: this.mainContainer,
+                map: this.map,
+                centerContainer: this.centerContainer.domNode
+            }, this.sidebarToggle);
 
-			this.initMap();
-			this.initSearchTools();
+            this.inherited(arguments);
+        },
+        initMap: function () {
+            // summary:
+            //      Sets up the map
+            console.log('app/App:initMap', arguments);
 
-			sb = new SideBarToggler({
-				sidebar: this.sideBar.domNode,
-				mainContainer: this.mainContainer,
-				map: this.map,
-				centerContainer: this.centerContainer.domNode
-			}, this.sidebarToggle);
+            this.identify = new Identify({
+                url: config.urls.mapService
+            });
 
-			this.inherited(arguments);
-		},
-		initMap: function() {
-			// summary:
-			//      Sets up the map
-			console.log('app/App:initMap', arguments);
+            this.map = new BaseMap(this.mapDiv, {
+                useDefaultBaseMap: false,
+                extent: new Extent({
+                    xmax: -11762120.612131765,
+                    xmin: -13074391.513731329,
+                    ymax: 5225035.106177688,
+                    ymin: 4373832.359194187,
+                    spatialReference: {
+                        wkid: 3857
+                    }
+                })
+            });
 
-			this.identify = new Identify({
-				url: AGRC.urls.mapService
-					// errorLogger: AGRC.errorLogger
-			});
+            var layerSelector = new LayerSelector({
+                map: this.map,
+                quadWord: config.quadWord,
+                baseLayers: ['Lite', 'Hybrid', 'Terrain', 'Topo']
+            });
+            layerSelector.startup();
 
-			this.map = new BaseMap(this.mapDiv, {
-				useDefaultBaseMap: false
-			});
+            this.identify.setMap(this.map);
 
-			var s;
+            var lyr = new ArcGISDynamicMapServiceLayer(config.urls.mapService);
+            this.map.addLayer(lyr);
+            this.map.addLoaderToLayer(lyr);
 
-			s = new BaseMapSelector({
-				map: this.map,
-				id: 'claro',
-				position: 'TR',
-				defaultThemeLabel: 'Lite'
-			});
+            // disable popup
+            var that = this;
+            this.map.on('load', function () {
+                that.map.graphics.disableMouseEvents();
+            });
 
-			this.identify.setMap(this.map);
+            // create new print widget
+            this.print = new Print({
+                map: this.map,
+                layerSelector: layerSelector
+            }, this.printDiv);
+        },
+        wireEvents: function () {
+            // summary:
+            //      description
+            console.log('app/App:wireEvents', arguments);
 
-			var lyr = new ArcGISDynamicMapServiceLayer(AGRC.urls.mapService);
-			this.map.addLayer(lyr);
-			this.map.addLoaderToLayer(lyr);
+            topic.subscribe('agrc.widgets.locate.MagicZoom.onZoom', this, function () {
+                this.identify.clearIdentifyResults();
+            });
+        },
+        initSearchTools: function () {
+            // summary:
+            //      description
+            console.log('app/App:initSearchTools', arguments);
 
-			// disable popup
-			var that = this;
-			this.map.on('load', function() {
-				that.map.graphics.disableMouseEvents();
-			});
+            var color = new Color([255, 127, 1]);
+            var lineSymbol = new SimpleLineSymbol()
+                .setWidth(3)
+                .setColor(color);
 
-			// create new print widget
-			this.print = new Print({
-				map: this.map,
-				bmSelector: s
-			}, this.printDiv);
-		},
-		wireEvents: function() {
-			// summary:
-			//      description
-			console.log('app/App:wireEvents', arguments);
+            var commonParams = {
+                map: this.map,
+                tooltipPosition: 'after',
+                maxResultsToDisplay: 12
+            };
 
-			topic.subscribe('agrc.widgets.locate.MagicZoom.onZoom', this, function() {
-				this.identify.clearIdentifyResults();
-			});
-		},
-		initSearchTools: function() {
-			// summary:
-			//      description
-			console.log('app/App:initSearchTools', arguments);
+            var streamProvider = new MapService(
+                config.urls.mapService + '/2',
+                config.fields.streams.GNIS_Name,
+                {
+                    contextField: config.fields.streams.COUNTY
+                });
+            var ss = new Sherlock(lang.mixin(commonParams, {
+                provider: streamProvider,
+                promptMessage: 'Please begin typing a stream name...',
+                placeHolder: ''
+            }), 'stream-search');
+            // set this after the constructor fires to prevent it from being overwritten
+            ss.symbolLine = lineSymbol;
 
-			var color = new Color([255, 127, 1]);
-			var lineSymbol = new SimpleLineSymbol()
-				.setWidth(3)
-				.setColor(color);
+            var assessmentUnitNameProvider = new MapService(
+                config.urls.mapService + '/1',
+                'AssessmentUnits.' + config.fields.assessmentUnits.AU_NAME,
+                {
+                    outFields: ['*']
+                });
+            var aName = new Sherlock(lang.mixin(commonParams, {
+                provider: assessmentUnitNameProvider,
+                promptMessage: 'Please begin typing an assessment unit name...',
+                placeHolder: ''
+            }), 'au-name-search');
+            aName.symbolLine = lineSymbol;
+            aspect.after(aName, 'onZoomed', lang.hitch(this, this.identifySearchResult), true);
 
-			var commonParams = {
-				map: this.map,
-				mapServiceURL: AGRC.urls.mapService,
-				tooltipPosition: 'after',
-				maxResultsToDisplay: 12
-			};
+            var assessmentUnitIdProvider = new MapService(
+                config.urls.mapService + '/1',
+                'AssessmentUnits.' + config.fields.assessmentUnits.ASSESS_ID
+            );
+            var aID = new Sherlock(lang.mixin(commonParams, {
+                provider: assessmentUnitIdProvider,
+                promptMessage: 'Please begin typing an assessment unit id...',
+                placeHolder: ''
+            }), 'au-id-search');
+            aID.symbolLine = lineSymbol;
+            aspect.after(aID, 'onZoomed', lang.hitch(this, this.identifySearchResult), true);
 
-			var ss = new StreamSearch(lang.mixin(commonParams, {
-				promptMessage: 'Please begin typing a stream name...',
-				searchLayerIndex: 2,
-				searchField: AGRC.fields.streams.GNIS_Name,
-				placeHolder: '',
-				outFields: [AGRC.fields.streams.GNIS_Name, AGRC.fields.streams.COUNTY],
-				countyField: AGRC.fields.streams.COUNTY
-			}), 'stream-search');
-			// set this after the constructor fires to prevent it from being overwritten
-			ss.symbolLine = lineSymbol;
+            new ZoomToCoords({
+                map: this.map
+            }, 'zoom-to-coords');
 
-			var aName = new StreamSearch(lang.mixin(commonParams, {
-				promptMessage: 'Please begin typing an assessment unit name...',
-				searchLayerIndex: 1,
-				searchField: AGRC.fields.assessmentUnits.AU_NAME,
-				placeHolder: '',
-				outFields: ['*'],
-				countyField: AGRC.fields.assessmentUnits.COUNTY
-			}), 'au-name-search');
-			aName.symbolLine = lineSymbol;
-			aspect.after(aName, 'onZoomed', lang.hitch(this, this.identifySearchResult), true);
+            // clear search boxes when the user clicks on the map
+            this.map.on('click', function () {
+                ss.graphicsLayer.clear();
+                aName.graphicsLayer.clear();
+                aID.graphicsLayer.clear();
+            });
+        },
+        identifySearchResult: function (g) {
+            // summary:
+            //        sends the graphic that was zoomed to via the magic zoom to the identify class
+            console.log('app/App:identifySearchResult', arguments);
 
-			var aID = new MagicZoom(lang.mixin(commonParams, {
-				promptMessage: 'Please begin typing an assessment unit id...',
-				searchLayerIndex: 1,
-				searchField: AGRC.fields.assessmentUnits.ASSESS_ID,
-				placeHolder: ''
-			}), 'au-id-search');
-			aID.symbolLine = lineSymbol;
-			aspect.after(aID, 'onZoomed', lang.hitch(this, this.identifySearchResult), true);
-
-			var coords;
-			coords = new ZoomToCoords({
-				map: this.map
-			}, 'zoom-to-coords');
-
-			// clear search boxes when the user clicks on the map
-			this.map.on('click', function() {
-				ss._graphicsLayer.clear();
-				aName._graphicsLayer.clear();
-				aID._graphicsLayer.clear();
-			});
-		},
-		identifySearchResult: function(g) {
-			// summary:
-			//        sends the graphic that was zoomed to via the magic zoom to the identify class
-			console.log('app/App:identifySearchResult', arguments);
-
-			var newAtts = {};
-			for (var key in g.attributes) {
-				if (g.attributes.hasOwnProperty(key)) {
-					var newKey = key.split('.')[1];
-					newAtts[newKey] = g.attributes[key];
-				}
-			}
-			g.attributes = newAtts;
-			this.identify.onTaskComplete([{
-				layerId: 1,
-				feature: g,
-				layerName: 'Assessment Unit',
-				displayFieldName: 'AU_NAME'
-			}]);
-		}
-	});
+            this.identify.onTaskComplete([{
+                layerId: 1,
+                feature: g,
+                layerName: 'Assessment Unit',
+                displayFieldName: 'AU_NAME'
+            }]);
+        }
+    });
 });

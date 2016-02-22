@@ -1,17 +1,16 @@
 @import '../../dijit/themes/claro/claro.css';
 @import '../../esri/css/esri.css';
 @import '../../agrc/resources/map/BaseMap.css';
-@import '../../agrc/resources/locate/MagicZoom.css';
 @import '../../agrc/resources/locate/ZoomToCoords.css';
-@import '../../agrc/resources/map/BaseMapSelector.css';
 @import '../../ijit/themes/standard/layout/SideBarToggler.css';
 @import '../../ijit/themes/standard/layout/PaneStack.css';
-@import '../../waterquality/css/StreamSearch.css';
-@import '../../waterquality/css/ZoomToCoords.css';
-@import '../../waterquality/css/Identify.css';
-@import '../../waterquality/css/IdentifyResult.css';
-@import '../../waterquality/css/Print.css';
-/*@import '../../bootstrap/css/bootstrap.css'; breaks dojo build :( */
+@import 'ZoomToCoords.css';
+@import 'Identify.css';
+@import 'IdentifyResult.css';
+@import 'Print.css';
+@import '../../layer-selector/resources/LayerSelector.css';
+@import '../../sherlock/resources/Sherlock.css';
+@import '../../bootstrap/dist/css/bootstrap.css';
 
 body, html, .app {
     width: 100%;
@@ -84,13 +83,13 @@ body, html, .app {
 .app .first-header {
     margin-top: 0px;
 }
-.magic-zoom {
+.sherlock {
     position: relative;
     z-index: auto;
     width: 320px;
 }
-.magic-zoom .input-group,
-.magic-zoom .matches-table {
+.sherlock .input-group,
+.sherlock .matches-table {
     width: 310px;
 }
 .pane-stack {

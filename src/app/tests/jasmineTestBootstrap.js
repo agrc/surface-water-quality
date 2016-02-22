@@ -1,11 +1,22 @@
-/*jshint unused:false*/
-var dojoConfig = {
-    isDebug: false,
-    isJasmineTestRunner: true, // prevents parser in main.js from running
-    has: {'dojo-undef-api': true}
+/* global JasmineFaviconReporter, jasmineRequire */
+var dojoConfig = {  // eslint-disable-line no-unused-vars
+    baseUrl: '/src/',
+    packages: ['dojo',  // dojo is required here since we are defining baseUrl before loading dojo
+        {
+            name: 'agrc-jasmine-matchers',
+            location: 'agrc-jasmine-matchers/src'
+        }, {
+            name: 'stubmodule',
+            location: 'stubmodule/src',
+            main: 'stub-module'
+        }
+    ],
+    has: {
+        'dojo-undef-api': true
+    },
+    isJasmineTestRunner: true
 };
 
-// override alert to console
-window.alert = function(msg) {
-    console.error('ALERT OVERRIDDEN TO LOG: ' + msg);
-};
+// for jasmine-favicon-reporter
+jasmine.getEnv().addReporter(new JasmineFaviconReporter());
+jasmine.getEnv().addReporter(new jasmineRequire.JSReporter2());
