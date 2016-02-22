@@ -261,9 +261,6 @@ module.exports = function (grunt) {
                     livereload: true
                 }
             }
-        },
-        debug: {
-            options: {}
         }
     });
 
@@ -273,8 +270,6 @@ module.exports = function (grunt) {
             grunt.loadNpmTasks(key);
         }
     }
-
-    grunt.loadNpmTasks('grunt-debug-task');
 
     // Default task.
     grunt.registerTask('default', [
