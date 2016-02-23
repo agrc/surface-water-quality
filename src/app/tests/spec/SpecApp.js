@@ -1,22 +1,24 @@
 require([
     'app/App',
 
-    'dojo/dom-construct',
-    'dojo/_base/window'
+    'dojo/dom-construct'
 ],
 
 function (
     App,
 
-    domConstruct,
-    win
+    domConstruct
 ) {
     describe('app/App', function () {
         var testWidget;
         beforeEach(function () {
-            domConstruct.create('div', {id: 'loading-overlay'}, document.body);
-            testWidget = new App({}, domConstruct.create('div', {}, win.body()));
-            testWidget.startup();
+            testWidget = new App({}, domConstruct.create('div', {
+                style: {
+                    width: '100%',
+                    height: '100%'
+                }
+            }, document.body));
+            // testWidget.startup(); // commented out for now to help with IE10
         });
         afterEach(function () {
             testWidget.destroy();

@@ -19,11 +19,13 @@ src/ijit/
 src/jasmine-favicon-reporter/
 src/jasmine-jsreporter/
 src/jquery/
+src/ladda-bootstrap/
 src/layer-selector/
 src/mustache/
 src/put-selector/
 src/secrets.json
 src/sherlock/
+src/spin.js/
 src/spinjs/
 src/util/
 src/xstyle/
