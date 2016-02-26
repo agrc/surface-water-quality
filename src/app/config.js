@@ -99,7 +99,7 @@ define([
 
     if (has('agrc-build') === 'prod') {
         config.apiKey = 'AGRC-A94B063C533889';
-        config.quadWord = 'career-exhibit-panel-stadium';
+        config.quadWord = 'alfred-plaster-crystal-dexter';
     } else if (has('agrc-build') === 'stage') {
         // test.mapserv.utah.gov
         config.apiKey = 'AGRC-AC122FA9671436';
