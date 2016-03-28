@@ -145,13 +145,20 @@ define([
                     spatialReference: {
                         wkid: 3857
                     }
-                })
+                }),
+                showAttribution: false
             });
 
             var layerSelector = new LayerSelector({
                 map: this.map,
                 quadWord: config.quadWord,
-                baseLayers: ['Lite', 'Hybrid', 'Terrain', 'Topo']
+                baseLayers: ['Lite', 'Hybrid', 'Terrain', 'Topo'],
+                overlays: [{
+                    Factory: ArcGISDynamicMapServiceLayer,
+                    url: config.urls.landOwnership,
+                    id: 'Land Ownership',
+                    opacity: config.landOwnershipOpacity
+                }]
             });
             layerSelector.startup();
 

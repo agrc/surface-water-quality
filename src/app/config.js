@@ -52,8 +52,10 @@ define([
         },
         urls: {
             mapService: '/ArcGIS/rest/services/SurfaceWaterQuality/MapService/MapServer',
-            gpService: '/ArcGIS/rest/services/SurfaceWaterQuality/Toolbox/GPServer/Print'
+            gpService: '/ArcGIS/rest/services/SurfaceWaterQuality/Toolbox/GPServer/Print',
+            landOwnership: 'http://tlamap.trustlands.utah.gov/arcgis/rest/services/UT_SITLA_LandOwnership/MapServer'
         },
+        landOwnershipOpacity: 0.5,
         // lookup tables
         luts: {
             BEN_CLASS: {
