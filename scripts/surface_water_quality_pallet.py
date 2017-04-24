@@ -15,10 +15,9 @@ class SurfaceWaterQualityPallet(Pallet):
     def build(self, configuration):
         self.arcgis_services = [('SurfaceWaterQuality/MapService', 'MapServer'),
                                 ('SurfaceWaterQuality/Toolbox', 'GPServer')]
-        self.staging = 'C:\\Scheduled\\staging'
 
         self.sgid = join(self.garage, 'SGID10.sde')
-        self.water = join(self.staging, 'water.gdb')
+        self.water = join(self.staging_rack, 'water.gdb')
 
         self.copy_data = [self.water]
 
