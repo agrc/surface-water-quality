@@ -11,6 +11,9 @@ from forklift.models import Pallet
 from os.path import join, dirname, realpath
 
 
+current_folder = dirname(realpath(__file__))
+
+
 class SurfaceWaterQualityPallet(Pallet):
     def build(self, configuration):
         self.arcgis_services = [('SurfaceWaterQuality/MapService', 'MapServer'),
@@ -23,4 +26,4 @@ class SurfaceWaterQualityPallet(Pallet):
 
         self.add_crate(('StreamsNHDHighRes', self.sgid, self.water))
 
-        self.static_data = [join(dirname(realpath(__file__)), '..', 'data', 'surfacewaterquality.gdb')]
+        self.static_data = [join(current_folder, '..', 'data', 'surfacewaterquality.gdb')]
