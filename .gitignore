@@ -31,3 +31,5 @@ src/util/
 src/xstyle/
 
 *.pyc
+
+data/.DS_Store

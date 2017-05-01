@@ -8,7 +8,7 @@ A module that contains a pallet definition for the surface water quality project
 
 
 from forklift.models import Pallet
-from os.path import join
+from os.path import join, dirname, realpath
 
 
 class SurfaceWaterQualityPallet(Pallet):
@@ -22,3 +22,5 @@ class SurfaceWaterQualityPallet(Pallet):
         self.copy_data = [self.water]
 
         self.add_crate(('StreamsNHDHighRes', self.sgid, self.water))
+
+        self.static_data = [join(dirname(realpath(__file__)), '..', 'data', 'surfacewaterquality.gdb')]
