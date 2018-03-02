@@ -2,6 +2,9 @@
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/agrc-surface-water.svg)](https://saucelabs.com/u/agrc-surface-water)
 # surface-water-quality
+
+**Note: This application was retired on 3/2/2018. See [this issue](https://github.com/agrc/deq-enviro/issues/355) for more details.**
+
 Beneficial Uses and Water Quality Assessment Map
 
 
