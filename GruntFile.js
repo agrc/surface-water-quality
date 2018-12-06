@@ -24,6 +24,8 @@ var browsers = [{
 }];
 
 module.exports = function (grunt) {
+    require('load-grunt-tasks')(grunt);
+
     var jsFiles = 'src/app/**/*.js';
     var otherFiles = [
         'src/app/**/*.html',
@@ -250,6 +252,34 @@ module.exports = function (grunt) {
                 }
             }
         },
+        uglify: {
+            options: {
+                preserveComments: false,
+                sourceMap: true,
+                compress: {
+                    drop_console: true, // eslint-disable-line camelcase
+                    passes: 2,
+                    dead_code: true // eslint-disable-line camelcase
+                }
+            },
+            stage: {
+                options: {
+                    compress: {
+                        drop_console: false // eslint-disable-line camelcase
+                    }
+                },
+                src: ['dist/dojo/dojo.js'],
+                dest: 'dist/dojo/dojo.js'
+            },
+            prod: {
+                files: [{
+                    expand: true,
+                    cwd: 'dist',
+                    src: '**/*.js',
+                    dest: 'dist'
+                }]
+            }
+        },
         watch: {
             eslint: {
                 files: jshintFiles,
@@ -264,13 +294,6 @@ module.exports = function (grunt) {
         }
     });
 
-    // Loading dependencies
-    for (var key in grunt.file.readJSON('package.json').devDependencies) {
-        if (key !== 'grunt' && key.indexOf('grunt') === 0) {
-            grunt.loadNpmTasks(key);
-        }
-    }
-
     // Default task.
     grunt.registerTask('default', [
         'jasmine:main:build',
@@ -282,6 +305,7 @@ module.exports = function (grunt) {
         'clean:build',
         'newer:imagemin:main',
         'dojo:prod',
+        'uglify:prod',
         'copy:main',
         'processhtml:main'
     ]);
@@ -289,6 +313,7 @@ module.exports = function (grunt) {
         'clean:build',
         'newer:imagemin:main',
         'dojo:stage',
+        'uglify:stage',
         'copy:main',
         'processhtml:main'
     ]);
