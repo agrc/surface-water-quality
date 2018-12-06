@@ -98,7 +98,7 @@ function (
 
             lang.mixin(params, this.getGraphics());
 
-            this.gp.submitJob(params);
+            this.gp.execute(params, this.onJobComplete.bind(this), this.onJobError.bind(this));
         },
         initGP: function () {
             // summary:
@@ -106,11 +106,6 @@ function (
             console.log('waterquality/Print:initGP', arguments);
 
             this.gp = new Geoprocessor(config.urls.gpService);
-
-            this.connect(this.gp, 'onJobComplete', 'onJobComplete');
-            this.connect(this.gp, 'onStatusUpdate', 'onStatusUpdate');
-            this.connect(this.gp, 'onError', 'onJobError');
-            this.connect(this.gp, 'onGetResultDataComplete', 'onGetResultDataComplete');
         },
         onPrintButtonClicked: function () {
             // summary:
@@ -126,16 +121,17 @@ function (
             //      callback for print job
             console.log('waterquality/Print:onJobComplete', arguments);
 
-            if (response.jobStatus === 'esriJobSucceeded') {
-                this.gp.getResultData(response.jobId, 'outFile');
-            } else {
+            if (!response.jobStatus === 'esriJobSucceeded') {
                 this.onJobError({message: response.jobStatus});
             }
-        },
-        onStatusUpdate: function (/*response*/) {
-            // summary:
-            //      callback for status updates from server
-            console.log('waterquality/Print:onStatusUpdate', arguments);
+
+            this.setMsg('', false);
+
+            domConstruct.create('a', {
+                innerHTML: this.messages.done,
+                href: response[0].value.url,
+                target: '_blank'
+            }, this.message);
         },
         onJobError: function (/*response*/) {
             // summary:
@@ -143,19 +139,6 @@ function (
             console.log('waterquality/Print:onJobError', arguments);
 
             this.setMsg(this.messages.error, false);
-        },
-        onGetResultDataComplete: function (response) {
-            // summary:
-            //      callback for getResultData
-            console.log('waterquality/Print:onGetResultDataComplete', arguments);
-
-            this.setMsg('', false);
-
-            domConstruct.create('a', {
-                innerHTML: this.messages.done,
-                href: response.value.url,
-                target: '_blank'
-            }, this.message);
         },
         setMsg: function (msg, showLoader) {
             // summary:
