@@ -7,6 +7,7 @@ define([
     'dojo/dom-class',
     'dojo/dom-construct',
     'dojo/text!app/html/AssessmentUnitAttributes.html',
+    'dojo/text!app/html/AssessmentUnitAttributesNoLink.html',
     'dojo/text!app/html/StreamAttributes.html',
     'dojo/_base/array',
     'dojo/_base/declare',
@@ -26,6 +27,7 @@ function (
     domClass,
     domConstruct,
     AssessmentUnitAttributes,
+    AssessmentUnitAttributesNoLink,
     StreamAttributes,
     array,
     declare,
@@ -84,7 +86,9 @@ function (
                     template = new InfoTemplate(titleString, StreamAttributes);
                     streams.push(g);
                 } else { // assessment unit
-                    template = new InfoTemplate(titleString, AssessmentUnitAttributes);
+                    var link = g.attributes[config.fields.assessmentUnits.TMDL_INFO];
+                    var html = (link && link.trim().length > 0) ? AssessmentUnitAttributes : AssessmentUnitAttributesNoLink;
+                    template = new InfoTemplate(titleString, html);
                     hucs.push(g);
                 }
                 g.setInfoTemplate(template);
