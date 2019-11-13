@@ -19,7 +19,7 @@ class SurfaceWaterQualityPallet(Pallet):
         self.arcgis_services = [('SurfaceWaterQuality/MapService', 'MapServer'),
                                 ('SurfaceWaterQuality/Toolbox', 'GPServer')]
 
-        self.sgid = join(self.garage, 'SGID10.sde')
+        self.sgid = join(self.garage, 'SGID.sde')
         self.water = join(self.staging_rack, 'water.gdb')
 
         self.copy_data = [self.water]
