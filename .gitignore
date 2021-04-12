@@ -9,7 +9,9 @@ src/agrc/
 src/bootstrap/
 src/components-jasmine/
 src/dgrid/
+src/dgrid1/
 src/dijit/
+src/dijit-themes/
 src/dojo/
 src/dojox/
 src/dstore/
@@ -21,6 +23,7 @@ src/jasmine-jsreporter/
 src/jquery/
 src/ladda-bootstrap/
 src/layer-selector/
+src/moment/
 src/mustache/
 src/put-selector/
 src/secrets.json

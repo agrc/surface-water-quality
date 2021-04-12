@@ -104,7 +104,7 @@ module.exports = function (grunt) {
         },
         clean: {
             // vendor/*.* and package.json break the build
-            build: ['dist', 'src/agrc/vendor', 'src/esri/package.json'],
+            build: ['dist'],
             deploy: ['deploy']
         },
         compress: {

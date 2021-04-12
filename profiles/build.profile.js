@@ -6,7 +6,6 @@ var profile = {
     mini: true,
     optimize: false,
     layerOptimize: false,
-    stripConsole: 'all',
     selectorEngine: 'acme',
     layers: {
         'dojo/dojo': {
@@ -33,9 +32,22 @@ var profile = {
         'dojo-test-sniff': 0
     },
     userConfig: {
-        packages: ['app', 'dijit', 'dojox', 'agrc', 'ijit', 'esri', 'waterquality', 'layer-selector']
+        packages: ['app', 'dijit', 'dojox', 'agrc', 'ijit', 'layer-selector']
     },
-    packages: ['bootstrap', 'put-selector', 'mustache'],
+    packages: ['bootstrap', 'dgrid1', 'dstore', 'put-selector', 'mustache', {
+        name: 'moment',
+        location: 'moment',
+        main: 'moment',
+        trees: [
+            // don't bother with .hidden, tests, min, src, and templates
+            ['.', '.', /(\/\.)|(~$)|(test|txt|src|min|templates)/]
+        ],
+        resourceTags: {
+            amd: function amd(filename) {
+                return /\.js$/.test(filename);
+            }
+        }
+    }],
     map: {
         'spinjs': {
             'spin': 'spinjs/spin'

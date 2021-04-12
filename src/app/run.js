@@ -21,11 +21,14 @@
             'sherlock',
             'spinjs',
             'xstyle',
-            'waterquality',
             'ijit', {
                 name: 'jquery',
                 location: './jquery/dist',
                 main: 'jquery'
+            }, {
+                name: 'bootstrap',
+                location: 'bootstrap/dist',
+                main: 'js/bootstrap'
             }
         ],
         map: {
