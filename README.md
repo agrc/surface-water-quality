@@ -1,14 +1,6 @@
-[![Build Status](https://travis-ci.org/agrc/surface-water-quality.svg?branch=master)](https://travis-ci.org/agrc/surface-water-quality)
-
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/agrc-surface-water.svg)](https://saucelabs.com/u/agrc-surface-water)
 # surface-water-quality
+
 Beneficial Uses and Water Quality Assessment Map
-
-
-Sauce User Name: `agrc-surface-water` (full project name was too long)
-
-Test: [test.mapserv.utah.gov/surfacewaterquality/](http://test.mapserv.utah.gov/surfacewaterquality/)  
-Prod: [mapserv.utah.gov/surfacewaterquality/](http://mapserv.utah.gov/surfacewaterquality/)  
 
 ## Deployment
 
