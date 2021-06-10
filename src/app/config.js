@@ -51,9 +51,9 @@ define([
             }
         },
         urls: {
-            mapService: '/ArcGIS/rest/services/SurfaceWaterQuality/MapService/MapServer',
-            gpService: '/ArcGIS/rest/services/SurfaceWaterQuality/Toolbox/GPServer/Print',
-            landOwnership: 'http://tlamap.trustlands.utah.gov/arcgis/rest/services/UT_SITLA_LandOwnership/MapServer'
+            mapService: 'https://mapserv.utah.gov/arcgis/rest/services/SurfaceWaterQuality/MapService/MapServer',
+            gpService: 'https://mapserv.utah.gov/arcgis/rest/services/SurfaceWaterQuality/Toolbox/GPServer/Print',
+            landOwnership: 'https://tlamap.trustlands.utah.gov/arcgis/rest/services/UT_SITLA_LandOwnership/MapServer'
         },
         landOwnershipOpacity: 0.5,
         // lookup tables
@@ -103,9 +103,9 @@ define([
         config.apiKey = 'AGRC-A94B063C533889';
         config.quadWord = 'alfred-plaster-crystal-dexter';
     } else if (has('agrc-build') === 'stage') {
-        // test.mapserv.utah.gov
-        config.apiKey = 'AGRC-AC122FA9671436';
-        config.quadWord = 'opera-event-little-pinball';
+        // *.dev.utah.gov
+        config.apiKey = 'AGRC-FE1B257E901672';
+        config.quadWord = 'wedding-tactic-enrico-yes';
     } else {
         xhr(require.baseUrl + 'secrets.json', {
             handleAs: 'json',
