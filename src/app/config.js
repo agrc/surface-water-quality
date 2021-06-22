@@ -100,8 +100,8 @@ define([
     };
 
     if (has('agrc-build') === 'prod') {
-        config.apiKey = 'AGRC-A94B063C533889';
-        config.quadWord = 'alfred-plaster-crystal-dexter';
+        config.apiKey = 'AGRC-62420AEA530917';
+        config.quadWord = 'ivory-telecom-person-medusa';
     } else if (has('agrc-build') === 'stage') {
         // *.dev.utah.gov
         config.apiKey = 'AGRC-FE1B257E901672';
