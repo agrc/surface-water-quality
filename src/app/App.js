@@ -235,8 +235,10 @@ define([
 
             var assessmentUnitIdProvider = new MapService(
                 config.urls.mapService + '/1',
-                'AssessmentUnits.' + config.fields.assessmentUnits.ASSESS_ID
-            );
+                'AssessmentUnits.' + config.fields.assessmentUnits.ASSESS_ID,
+                {
+                    outFields: ['*']
+                });
             var aID = new Sherlock(lang.mixin(commonParams, {
                 provider: assessmentUnitIdProvider,
                 promptMessage: 'Please begin typing an assessment unit id...',
