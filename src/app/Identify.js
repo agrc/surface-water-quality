@@ -57,6 +57,9 @@ function (
 
             this.identifyResults = [];
             this.inherited(arguments);
+
+            this.iParams.returnFieldName = true;
+            this.iParams.returnUnformattedValues = true;
         },
         onTaskComplete: function (iResults) {
             // summary:
