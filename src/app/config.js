@@ -71,29 +71,6 @@ define([
                 '5B': 'Use Class 5B = Infrequent primary and secondary contact recreation, waterfowl, shore birds and aquatic wildlife',
                 '5C': 'Use Class 5C = Infrequent primary and secondary contact recreation, waterfowl, shore birds and aquatic wildlife',
                 '5D': 'Use Class 5D = Infrequent primary and secondary contact recreation, waterfowl, shore birds and aquatic wildlife'
-            },
-            ASSESSMENT: {
-                '1': 'Assessment Category 1 = Not Impaired: all beneficial uses are supported',
-                '2': 'Assessment Category 2 = Not impaired: ' +
-                    'assessed beneficial uses are supported, at least 1 use not assessed',
-                '3': 'Assessment Category 3 = No assesssment (more data required)',
-                '4A': 'Assessment Category 4A = Impaired: TMDL Approved',
-                '4A, 4C': 'Assessment Category 4A = Impaired: TMDL Approved; Assessment Category 4C = Impaired: TMDL not required (aquatic habitat impairment)',
-                '5': 'Assessment Category 5 = Impaired: TMDL required (303d list)'
-            },
-            ANTI_DEGRD: {
-                '1': 'Category 1 = No point discharges allowed within U.S. ' +
-                    'Forest Service outer boundary or to other specified waters of R317-2-12',
-                '2': 'Category 2 = No water quality degradation allowed',
-                '3': 'Category 3 = Water quality degradation may be allowed ' +
-                    'outside USFS boundary pursuant to antidegradation review',
-                '4': 'Category 1 = No point discharges within U.S. Forest Service ' +
-                    'outer boundary except Deer Creek = Category 2 (No degradation ' +
-                    'allowed from Forest Service boundary upstream 4800 feet)',
-                '5': 'Category 1 = No point discharges within U.S. Forest Service ' +
-                    'outer boundary or to other specified waters of R317-2-12; ' +
-                    'Category 3 = degradation may be allowed for non-Category 1 ' +
-                    'waters pursuant to antidegradation review'
             }
         }
     };

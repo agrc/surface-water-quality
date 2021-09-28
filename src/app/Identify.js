@@ -155,10 +155,6 @@ function (
             if (result.layerId === 1 || result.layerId === 4) {
                 field = config.fields.assessmentUnits.BEN_CLASS;
                 attributes[field] = this.formatValue(attributes, field);
-                field = config.fields.assessmentUnits.ASSESSMENT;
-                attributes[field] = this.formatValue(attributes, field);
-                field = config.fields.assessmentUnits.Anti_DEGRD;
-                attributes[field] = this.formatValue(attributes, field);
             } else {
                 // format stream name if none
                 field = config.fields.streams.GNIS_Name;
