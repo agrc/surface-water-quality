@@ -51,7 +51,6 @@ define([
             }
         },
         urls: {
-            mapService: 'https://mapserv.utah.gov/arcgis/rest/services/SurfaceWaterQuality/MapService/MapServer',
             gpService: 'https://mapserv.utah.gov/arcgis/rest/services/SurfaceWaterQuality/Toolbox/GPServer/Print',
             landOwnership: 'https://tlamap.trustlands.utah.gov/arcgis/rest/services/UT_SITLA_LandOwnership/MapServer'
         },
@@ -100,13 +99,16 @@ define([
     };
 
     if (has('agrc-build') === 'prod') {
+        config.urls.mapService = 'https://mapserv.utah.gov/arcgis/rest/services/SurfaceWaterQuality/MapService/MapServer';
         config.apiKey = 'AGRC-62420AEA530917';
         config.quadWord = 'ivory-telecom-person-medusa';
     } else if (has('agrc-build') === 'stage') {
         // *.dev.utah.gov
+        config.urls.mapService = 'https://test.mapserv.utah.gov/arcgis/rest/services/SurfaceWaterQuality/MapService/MapServer';
         config.apiKey = 'AGRC-FE1B257E901672';
         config.quadWord = 'wedding-tactic-enrico-yes';
     } else {
+        config.urls.mapService = 'http://localhost/arcgis/rest/services/SurfaceWaterQuality/MapService/MapServer';
         xhr(require.baseUrl + 'secrets.json', {
             handleAs: 'json',
             sync: true
