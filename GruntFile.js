@@ -17,7 +17,7 @@ module.exports = function (grunt) {
         'src/app/config.js'
     ];
 
-  // Project configuration.
+    // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         bump: {
@@ -28,7 +28,7 @@ module.exports = function (grunt) {
             }
         },
         clean: {
-      // vendor/*.* and package.json break the build
+            // vendor/*.* and package.json break the build
             build: ['dist'],
             deploy: ['deploy']
         },
@@ -50,28 +50,25 @@ module.exports = function (grunt) {
         dojo: {
             prod: {
                 options: {
-          // You can also specify options to be used in all your tasks
                     profiles: [
                         'profiles/prod.build.profile.js',
                         'profiles/build.profile.js'
-                    ] // Profile for build
+                    ]
                 }
             },
             stage: {
                 options: {
-          // You can also specify options to be used in all your tasks
                     profiles: [
                         'profiles/stage.build.profile.js',
                         'profiles/build.profile.js'
-                    ] // Profile for build
+                    ]
                 }
             },
             options: {
-        // You can also specify options to be used in all your tasks
-                dojo: 'src/dojo/dojo.js', // Path to dojo.js file in dojo source
-                load: 'build', // Optional: Utility to bootstrap (Default: 'build')
+                dojo: 'src/dojo/dojo.js',
+                load: 'build',
                 releaseDir: '../dist',
-                require: 'src/app/run.js', // Optional: Module to require for the build (Default: nothing)
+                require: 'src/app/run.js',
                 basePath: './src'
             }
         },
@@ -84,7 +81,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: 'src/',
-            // exclude tests because some images in dojox throw errors
+                        // exclude tests because some images in dojox throw errors
                         src: ['**/*.{png,jpg,gif}', '!**/tests/**/*.*'],
                         dest: 'src/'
                     }
@@ -170,7 +167,6 @@ module.exports = function (grunt) {
         }
     });
 
-  // Default task.
     grunt.registerTask('default', [
         'jasmine:main:build',
         'eslint:main',
