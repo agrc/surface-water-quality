@@ -36,3 +36,4 @@ src/xstyle/
 *.pyc
 
 data/.DS_Store
+scripts/swq_secrets.py
