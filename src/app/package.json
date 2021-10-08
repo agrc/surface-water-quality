@@ -1,6 +1,6 @@
 {
 	"name": "app",
-	"version": "1.3.4-0",
+	"version": "1.3.4",
 	"main": "run",
 	"description": "surface-water-quality",
 	"homepage": "https://github.com/agrc/surface-water-quality",
