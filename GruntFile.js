@@ -107,10 +107,6 @@ module.exports = function (grunt) {
             }
         },
         eslint: {
-            options: {
-                configFile: '.eslintrc',
-                fix: true
-            },
             main: {
                 src: jshintFiles
             }
@@ -188,5 +184,9 @@ module.exports = function (grunt) {
         'uglify:stage',
         'copy:main',
         'processhtml:main'
+    ]);
+    grunt.registerTask('test', [
+        'eslint:main',
+        'build-prod'
     ]);
 };

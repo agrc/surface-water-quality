@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "grunt",
-    "test": "grunt travis --verbose",
+    "test": "grunt test",
     "postinstall": "bower install",
     "lint": "grunt eslint:main",
     "build": "grunt build-stage",
