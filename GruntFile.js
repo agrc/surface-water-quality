@@ -186,7 +186,6 @@ module.exports = function (grunt) {
         'processhtml:main'
     ]);
     grunt.registerTask('test', [
-        'eslint:main',
-        'build-prod'
+        'eslint:main'
     ]);
 };
