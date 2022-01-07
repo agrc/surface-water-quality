@@ -266,7 +266,7 @@ define([
             this.identify.onTaskComplete([{
                 layerId: 1,
                 feature: g,
-                layerName: 'Assessment Unit',
+                layerName: 'AssessmentUnits',
                 displayFieldName: 'AU_NAME'
             }]);
         }

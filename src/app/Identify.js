@@ -75,6 +75,11 @@ function (
 
             var hucs = [];
             var streams = [];
+            var layerNamesLookup = {
+                'AssessmentUnits': 'Assessment Unit Name',
+                'Stream': 'Stream'
+            }
+
             array.forEach(iResults, function (result) {
                 var g = result.feature;
                 g.attributes = this.normalizeFieldNames(g.attributes);
@@ -82,7 +87,7 @@ function (
                 var template;
                 var parts = result.displayFieldName.split('.');
                 var titleField = parts[parts.length - 1];
-                var titleString = result.layerName + ': ${' + titleField + '}';
+                var titleString = layerNamesLookup[result.layerName] + ': ${' + titleField + '}';
 
                 // what layer is this?
                 if (result.layerId === 0 || result.layerId === 3) {
