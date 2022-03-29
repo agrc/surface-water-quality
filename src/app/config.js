@@ -24,7 +24,7 @@ define([
                 ASSESS_ID: 'ASSESS_ID',
                 BEN_CLASS: 'BEN_CLASS',
                 ASSESSMENT: 'ASSESSMENT',
-                TMDL_INFO: 'TMDL_INFO',
+                TMDL_Info: 'TMDL_Info',
                 Anti_DEGRD: 'ANTI_DEGRD',
                 COUNTY: 'COUNTY'
             },
@@ -38,7 +38,7 @@ define([
                 ASSESSMENT: '2016 Assessment',
                 IMPAIRMENT: 'Beneficial Use: Cause of Impairment',
                 TMDL_APPRV: 'TMDL Approved: Cause of Impairment',
-                TMDL_INFO: 'TMDL Information',
+                TMDL_Info: 'TMDL Information',
                 TMDL_REQRD: 'TMDL Required: 303d Cause of Impairment',
                 HAB_IMPAIR: 'Aquatic Habitat Impairment',
                 BLU_RIBBON: 'Blue Ribbon Fishery',

@@ -94,7 +94,7 @@ function (
                     template = new InfoTemplate(titleString, StreamAttributes);
                     streams.push(g);
                 } else { // assessment unit
-                    var link = g.attributes[config.fields.assessmentUnits.TMDL_INFO];
+                    var link = g.attributes[config.fields.assessmentUnits.TMDL_Info];
                     var html = (link && link.trim().length > 0) ? AssessmentUnitAttributes : AssessmentUnitAttributesNoLink;
                     template = new InfoTemplate(titleString, html);
                     hucs.push(g);
