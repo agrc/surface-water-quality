@@ -96,7 +96,7 @@ function (
             this.attributes.innerHTML = this.graphic.getContent();
 
             // toggle TMDL link visibility
-            var tmdl = this.graphic.attributes[config.fields.assessmentUnits.TMDL_INFO];
+            var tmdl = this.graphic.attributes[config.fields.assessmentUnits.TMDL_Info];
             if (!tmdl) {
                 query('.tmdl-link').addClass('hidden');
             }
