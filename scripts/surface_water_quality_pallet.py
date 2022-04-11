@@ -27,6 +27,6 @@ class SurfaceWaterQualityPallet(Pallet):
         self.copy_data = [self.water, self.surfacewaterquality]
 
         self.add_crate(('StreamsNHDHighRes', self.sgid, self.water))
-        self.add_crate(('Assessed_Waters_2020', secrets.source_gdb, self.surfacewaterquality, 'AssessmentUnits'))
+        self.add_crate(('Assessed_Waters_2022', secrets.source_gdb, self.surfacewaterquality, 'AssessmentUnits'))
 
         self.static_data = [join(current_folder, '..', 'data', 'surfacewaterquality_static.gdb')]
