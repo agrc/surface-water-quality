@@ -58,19 +58,18 @@ define([
         // lookup tables
         luts: {
             BEN_CLASS: {
-                '1C': 'Use Class 1C = Domestic/Drinking Water',
-                '2A': 'Use Class 2A = Frequent primary contact recreation (e.g. swimming)',
-                '2B': 'Use Class 2B = Infrequent primary contact recreation (e.g. wading, fishing)',
-                '3A': 'Use Class 3A = Cold water fishery/aquatic life',
-                '3B': 'Use Class 3B = Warm water fishery/aquatic life',
-                '3C': 'Use Class 3C = Nongame fishery/aquatic life',
-                '3D': 'Use Class 3D = Waterfowl, shore birds and associated aquatic life',
-                '3E': 'Use Class 3E = Habitat limited waters',
-                '4': 'Use Class 4 = Agricultural uses (crop irrigation and stock watering)',
-                '5A': 'Use Class 5A = Frequent primary and secondary contact recreation, waterfowl, shore birds and aquatic wildlife',
-                '5B': 'Use Class 5B = Infrequent primary and secondary contact recreation, waterfowl, shore birds and aquatic wildlife',
-                '5C': 'Use Class 5C = Infrequent primary and secondary contact recreation, waterfowl, shore birds and aquatic wildlife',
-                '5D': 'Use Class 5D = Infrequent primary and secondary contact recreation, waterfowl, shore birds and aquatic wildlife'
+                '1C': 'Use Class 1C = Domestic/Drinking Water Source',
+                '2A': 'Use Class 2A = Frequent Primary Contact Recreation (e.g. swimming)',
+                '2B': 'Use Class 2B = Infrequent Primary Contact Recreation (e.g. wading, fishing)',
+                '3A': 'Class 3A = Cold Water Fishery/Aquatic Life',
+                '3B': 'Use Class 3B = Warm Water Fishery/Aquatic Life',
+                '3C': 'Use Class 3C = Nongame Fishery/Aquatic Life',
+                '3D': 'Use Class 3D = Waterfowl, Shore Birds and Associated Aquatic Life',
+                '4': 'Use Class 4 = Agriculture (crop irrigation, stock watering)',
+                '5A': 'Use Class 5A = Great Salt Lake Gilbert Bay below 4208 feet elevation',
+                '5B': 'Use Class 5B = Great Salt Lake Gunnison Bay below 4208 feet elevation',
+                '5C': 'Use Class 5C = Great Salt Lake Bear River Bay below 4208 feet elevation, excluding evaporation ponds',
+                '5D': 'Use Class 5D = Great Salt Lake Farmington Bay below 4208 feet elevation, excluding waterfowl management areas'
             }
         }
     };
