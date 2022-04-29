@@ -24,7 +24,7 @@
     "test": "grunt test",
     "postinstall": "bower install",
     "lint": "grunt eslint:main",
-    "build": "grunt build-stage",
+    "build:stage": "grunt build-stage",
     "build:prod": "grunt build-prod"
   }
 }
