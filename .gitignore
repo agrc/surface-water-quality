@@ -37,3 +37,8 @@ src/xstyle/
 
 data/.DS_Store
 scripts/swq_secrets.py
+
+# pro project
+*.ags
+maps/Default.gdb
+maps/ImportLog
