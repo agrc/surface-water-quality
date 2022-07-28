@@ -77,7 +77,7 @@ define([
     if (has('agrc-build') === 'prod') {
         config.urls.mapService = 'https://mapserv.utah.gov/arcgis/rest/services/SurfaceWaterQuality/MapService/MapServer';
         config.apiKey = 'AGRC-62420AEA530917';
-        config.quadWord = 'ivory-telecom-person-medusa';
+        config.quadWord = 'editor-cinema-tango-hydro';
     } else if (has('agrc-build') === 'stage') {
         // *.dev.utah.gov
         config.urls.mapService = 'https://test.mapserv.utah.gov/arcgis/rest/services/SurfaceWaterQuality/MapService/MapServer';
