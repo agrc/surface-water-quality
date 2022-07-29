@@ -1,5 +1,6 @@
 {
-  "hosting": {
+  "hosting": [{
+    "target": "main",
     "public": "dist",
     "ignore": [
       "firebase.json",
@@ -77,5 +78,14 @@
         "destination": "/index.html"
       }
     ]
-  }
+  }, {
+    "target": "redirect",
+    "redirects": [
+      {
+        "source": "**",
+        "destination": "https://wq.deq.utah.gov",
+        "type": 301
+      }
+    ]
+  }]
 }

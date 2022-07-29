@@ -1,5 +1,27 @@
 {
   "projects": {
     "default": "ut-dts-agrc-surface-wq-dev"
+  },
+  "targets": {
+    "ut-dts-agrc-surface-wq-dev": {
+      "hosting": {
+        "main": [
+          "ut-dts-agrc-surface-wq-dev"
+        ],
+        "redirect": [
+          "ut-dts-agrc-surface-wq-redirect-dev"
+        ]
+      }
+    },
+    "ut-dts-agrc-surface-wq-prod": {
+      "hosting": {
+        "redirect": [
+          "ut-dts-agrc-surface-wq-redirect-prod"
+        ],
+        "main": [
+          "ut-dts-agrc-surface-wq-prod"
+        ]
+      }
+    }
   }
 }
