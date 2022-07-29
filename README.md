@@ -1,6 +1,10 @@
-# surface-water-quality
+# Surface Water Quality
 
 Beneficial Uses and Water Quality Assessment Map
+
+Production: [wq.deq.utah.gov](https://wq.deq.utah.gov)
+
+Staging: [wq.dev.utah.gov](https://wq.dev.utah.gov)
 
 ## Deployment
 
