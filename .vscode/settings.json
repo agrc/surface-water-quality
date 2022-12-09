@@ -2,6 +2,8 @@
   "prettier.enable": false,
   "cSpell.words": [
     "firebaserc",
-    "hostingchannels"
+    "hostingchannels",
+    "prebuild",
+    "setversion"
   ]
 }
