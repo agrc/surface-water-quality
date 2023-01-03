@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/agrc/surface-water-quality/compare/v1.4.0...v1.4.1) (2023-01-03)
+
+
+### 🐛 Bug Fixes
+
+* **ci:** don't commit bump during deploy ([a8d6b1c](https://github.com/agrc/surface-water-quality/commit/a8d6b1c15237343951ef305bf8311e2008a98ffb))
+
 ## [1.4.0](https://github.com/agrc/surface-water-quality/compare/v1.3.6...v1.4.0) (2023-01-03)
 
 
