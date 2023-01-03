@@ -22,8 +22,9 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         bump: {
             options: {
+                commit: false,
+                createTag: false,
                 files: bumpFiles,
-                commitFiles: bumpFiles.concat(['src/ChangeLog.html']),
                 push: false
             }
         },
