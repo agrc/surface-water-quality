@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.2](https://github.com/agrc/surface-water-quality/compare/v1.4.1...v1.4.2) (2023-04-05)
+
+
+### 🐛 Bug Fixes
+
+* Q2 Dep Bumps 🌲 ([1d9be5e](https://github.com/agrc/surface-water-quality/commit/1d9be5eadebb447a6823a9203a1a3b9875a5171a))
+
 ## [1.4.1](https://github.com/agrc/surface-water-quality/compare/v1.4.0...v1.4.1) (2023-01-03)
 
 
