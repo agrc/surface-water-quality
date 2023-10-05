@@ -1,6 +1,6 @@
 {
   "name": "surface-water-quality",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "devDependencies": {
     "bower": "^1.8.14",
     "grunt": "^1.6.1",
