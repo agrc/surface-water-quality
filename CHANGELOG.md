@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.3](https://github.com/agrc/surface-water-quality/compare/v1.4.2...v1.4.3) (2023-10-05)
+
+
+### 🐛 Bug Fixes
+
+* update URL to land ownership layer ([43aba50](https://github.com/agrc/surface-water-quality/commit/43aba501f18a93de62aa3eb35f5bb7889430608c))
+
 ## [1.4.2](https://github.com/agrc/surface-water-quality/compare/v1.4.1...v1.4.2) (2023-04-05)
 
 
