@@ -18,6 +18,7 @@
             'dojox',
             'esri',
             'layer-selector',
+            'moment',
             'sherlock',
             'spinjs',
             'xstyle',
