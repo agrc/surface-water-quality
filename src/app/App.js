@@ -21,6 +21,7 @@ define([
 
     'esri/geometry/Extent',
     'esri/layers/ArcGISDynamicMapServiceLayer',
+    'esri/layers/FeatureLayer',
     'esri/symbols/SimpleLineSymbol',
 
     'ijit/widgets/layout/PaneStack',
@@ -57,6 +58,7 @@ define([
 
     Extent,
     ArcGISDynamicMapServiceLayer,
+    FeatureLayer,
     SimpleLineSymbol,
 
     PaneStack,
@@ -154,7 +156,7 @@ define([
                 quadWord: config.quadWord,
                 baseLayers: ['Lite', 'Hybrid', 'Terrain', 'Topo'],
                 overlays: [{
-                    Factory: ArcGISDynamicMapServiceLayer,
+                    Factory: FeatureLayer,
                     url: config.urls.landOwnership,
                     id: 'Land Ownership',
                     opacity: config.landOwnershipOpacity
