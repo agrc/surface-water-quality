@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.4](https://github.com/agrc/surface-water-quality/compare/v1.4.3...v1.4.4) (2023-10-09)
+
+
+### 🐛 Bug Fixes
+
+* correct land ownership layer type ([ff5eeb9](https://github.com/agrc/surface-water-quality/commit/ff5eeb92c8742449edf1863d45e6a8553c7d7ce7))
+
 ## [1.4.3](https://github.com/agrc/surface-water-quality/compare/v1.4.3...v1.4.3) (2023-10-09)
 
 
