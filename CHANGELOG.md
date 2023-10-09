@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.5](https://github.com/agrc/surface-water-quality/compare/v1.4.4...v1.4.5) (2023-10-09)
+
+
+### 🐛 Bug Fixes
+
+* use new GA4 analytics id and snippet ([efb0aca](https://github.com/agrc/surface-water-quality/commit/efb0aca94f379ca3531da08fd2f8c96a9a13bd4e))
+
 ## [1.4.4](https://github.com/agrc/surface-water-quality/compare/v1.4.3...v1.4.4) (2023-10-09)
 
 
