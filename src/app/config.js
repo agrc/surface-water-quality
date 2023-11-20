@@ -52,7 +52,7 @@ define([
         },
         urls: {
             gpService: 'https://mapserv.utah.gov/arcgis/rest/services/SurfaceWaterQuality/Toolbox/GPServer/Print',
-            landOwnership: 'https://gis.trustlands.utah.gov/server/rest/services/Ownership/UT_SITLA_Ownership_LandOwnership_WM/FeatureServer/0'
+            landOwnership: 'https://gis.trustlands.utah.gov/mapping/rest/services/Land_Ownership_WM/FeatureServer/0'
         },
         landOwnershipOpacity: 0.5,
         // lookup tables
