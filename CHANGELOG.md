@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.7](https://github.com/agrc/surface-water-quality/compare/v1.4.6...v1.4.7) (2024-04-18)
+
+
+### 🌲 Dependencies
+
+* **dev:** bump ip from 2.0.0 to 2.0.1 ([049ac78](https://github.com/agrc/surface-water-quality/commit/049ac78fef9bb675beb12b88e62fbe8e740dd7d5))
+
 ## [1.4.6](https://github.com/agrc/surface-water-quality/compare/v1.4.5...v1.4.6) (2023-11-20)
 
 
