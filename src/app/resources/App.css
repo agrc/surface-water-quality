@@ -58,7 +58,7 @@ body, html, .app {
 .app .version:hover {
     text-decoration: underline !important;
 }
-.app .title-pane>img {
+.app .title-pane>a {
     position: absolute;
     top: 0;
     right: 0;
