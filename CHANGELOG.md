@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.8](https://github.com/agrc/surface-water-quality/compare/v1.4.7...v1.4.8) (2024-08-08)
+
+
+### Bug Fixes
+
+* update deq logo ([3e50853](https://github.com/agrc/surface-water-quality/commit/3e50853dc6ae1ce586780f9a6010cb2d1c1bc62f))
+
 ## [1.4.7](https://github.com/agrc/surface-water-quality/compare/v1.4.6...v1.4.7) (2024-04-18)
 
 
