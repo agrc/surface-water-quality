@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.9](https://github.com/agrc/surface-water-quality/compare/v1.4.8...v1.4.9) (2024-08-21)
+
+
+### Bug Fixes
+
+* add R317_2_13_reference field ([449c951](https://github.com/agrc/surface-water-quality/commit/449c951b7f4003eca76fa82692e0c999079fd78f))
+* point at AGOL datasource for assessed waters data and update to 2024 ([a6d3ea6](https://github.com/agrc/surface-water-quality/commit/a6d3ea69e37df14a3476d945f9707e53161e4b35))
+
 ## [1.4.8](https://github.com/agrc/surface-water-quality/compare/v1.4.7...v1.4.8) (2024-08-08)
 
 
