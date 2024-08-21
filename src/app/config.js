@@ -35,7 +35,7 @@ define([
                 MGMT_UNIT: 'Watershed Management Unit',
                 ANTI_DEGRD: 'Anti-Degradation Category',
                 BEN_CLASS: 'Beneficial Uses',
-                ASSESSMENT: '2016 Assessment',
+                ASSESSMENT: 'Assessment',
                 IMPAIRMENT: 'Beneficial Use: Cause of Impairment',
                 TMDL_APPRV: 'TMDL Approved: Cause of Impairment',
                 TMDL_Info: 'TMDL Information',
@@ -80,11 +80,11 @@ define([
         config.quadWord = 'editor-cinema-tango-hydro';
     } else if (has('agrc-build') === 'stage') {
         // *.dev.utah.gov
-        config.urls.mapService = 'https://test.mapserv.utah.gov/arcgis/rest/services/SurfaceWaterQuality/MapService/MapServer';
+        config.urls.mapService = 'https://mapserv.utah.gov/arcgis/rest/services/SurfaceWaterQuality/MapService/MapServer';
         config.apiKey = 'AGRC-FE1B257E901672';
         config.quadWord = 'wedding-tactic-enrico-yes';
     } else {
-        config.urls.mapService = 'http://localhost/arcgis/rest/services/SurfaceWaterQuality/MapService/MapServer';
+        config.urls.mapService = 'https://mapserv.utah.gov/arcgis/rest/services/SurfaceWaterQuality/MapService/MapServer';
         xhr(require.baseUrl + 'secrets.json', {
             handleAs: 'json',
             sync: true
