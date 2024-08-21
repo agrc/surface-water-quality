@@ -41,6 +41,7 @@ define([
                 TMDL_Info: 'TMDL Information',
                 TMDL_REQRD: 'TMDL Required: 303d Cause of Impairment',
                 HAB_IMPAIR: 'Aquatic Habitat Impairment',
+                R317_2_13_reference: 'R317-2-13 Beneficial Use Reference',
                 BLU_RIBBON: 'Blue Ribbon Fishery',
                 Coordinator: 'Watershed Scientist',
                 Email: 'Email',
