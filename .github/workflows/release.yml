@@ -15,7 +15,7 @@ jobs:
     if: github.event.release.prerelease == true
     environment:
       name: dev
-      url: https://surface-water-quality.dev.utah.gov
+      url: https://wq.dev.utah.gov
 
     steps:
       - name: 🚀 Deploy
@@ -33,7 +33,7 @@ jobs:
     if: github.event.release.prerelease == false
     environment:
       name: prod
-      url: https://surface-water-quality.ugrc.utah.gov
+      url: https://wq.deq.utah.gov
 
     steps:
       - name: 🚀 Deploy
