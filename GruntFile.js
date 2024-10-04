@@ -125,15 +125,15 @@ module.exports = function (grunt) {
                 preserveComments: false,
                 sourceMap: true,
                 compress: {
-                    drop_console: true, // eslint-disable-line camelcase
+                    drop_console: true,
                     passes: 2,
-                    dead_code: true // eslint-disable-line camelcase
+                    dead_code: true
                 }
             },
             stage: {
                 options: {
                     compress: {
-                        drop_console: false // eslint-disable-line camelcase
+                        drop_console: false
                     }
                 },
                 src: ['dist/dojo/dojo.js'],
