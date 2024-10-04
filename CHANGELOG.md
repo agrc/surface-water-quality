@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.10-0](https://github.com/agrc/surface-water-quality/compare/v1.4.9...v1.4.10-0) (2024-10-04)
+
+
+### Dependencies
+
+* FY25Q2 dependency updates 🌲 ([984c4e8](https://github.com/agrc/surface-water-quality/commit/984c4e8f50f4a8cfd80eb01ab1dbc3608184b138))
+
 ## [1.4.9](https://github.com/agrc/surface-water-quality/compare/v1.4.8...v1.4.9) (2024-08-21)
 
 
