@@ -12,7 +12,7 @@ define([
 
         // version.: String
         //      The version number.
-        version: '1.4.10', // x-release-please-version
+        version: '1.4.11', // x-release-please-version
 
         fields: {
             streams: {

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.11](https://github.com/agrc/surface-water-quality/compare/v1.4.10...v1.4.11) (2025-01-10)
+
+
+### Dependencies
+
+* **dev:** bump grunt-contrib-connect in the safe-dependencies group ([8af47dd](https://github.com/agrc/surface-water-quality/commit/8af47dd7dce9c8258f3f95e927a0cb2197680c7b))
+
 ## [1.4.10](https://github.com/agrc/surface-water-quality/compare/v1.4.9...v1.4.10) (2024-10-04)
 
 
