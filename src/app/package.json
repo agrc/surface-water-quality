@@ -1,8 +1,0 @@
-{
-	"name": "app",
-	"version": "1.3.6",
-	"main": "run",
-	"description": "surface-water-quality",
-	"homepage": "https://github.com/agrc/surface-water-quality",
-	"dojoBuild": "app.profile.js"
-}
