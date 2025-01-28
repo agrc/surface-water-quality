@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.12](https://github.com/agrc/surface-water-quality/compare/v1.4.11...v1.4.12) (2025-01-28)
+
+
+### Features
+
+* deprecate application ([3b2405b](https://github.com/agrc/surface-water-quality/commit/3b2405bd603814deb5f9c2a6981e537008400df8))
+
+
+### Bug Fixes
+
+* add minimal package json ([f224db5](https://github.com/agrc/surface-water-quality/commit/f224db547a882f6f4312cb9c5a8e980ba23d2974))
+* move redirects to be a prop of target ([78c5bae](https://github.com/agrc/surface-water-quality/commit/78c5baea416d317b690c8d691e51d7f09268d93b))
+
 ## [1.4.11](https://github.com/agrc/surface-water-quality/compare/v1.4.10...v1.4.11) (2025-01-10)
 
 
