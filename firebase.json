@@ -67,10 +67,7 @@
             }
           ]
         }
-      ]
-    },
-    {
-      "target": "redirect",
+      ],
       "redirects": [
         {
           "source": "**",
@@ -146,10 +143,7 @@
             }
           ]
         }
-      ]
-    },
-    {
-      "target": "redirect",
+      ],
       "redirects": [
         {
           "source": "**",
