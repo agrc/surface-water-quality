@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.13](https://github.com/agrc/surface-water-quality/compare/v1.4.12...v1.4.13) (2025-02-03)
+
+
+### Bug Fixes
+
+* add lock file ([2c2eaf6](https://github.com/agrc/surface-water-quality/commit/2c2eaf6719b6c49e1cffecc775566e4ec9060ae4))
+
 ## [1.4.12](https://github.com/agrc/surface-water-quality/compare/v1.4.11...v1.4.12) (2025-01-28)
 
 
